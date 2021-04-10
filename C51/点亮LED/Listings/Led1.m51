@@ -1,0 +1,104 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/06/2021  21:07:31  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\LED.obj, .\Objects\LED star.obj TO .\Objects\Led1 PRINT (.\Listings\Led1.m51) RAMS
+>> IZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\LED.obj (LED)
+  .\Objects\LED star.obj (LED_STAR)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\Led1 (LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000CH     UNIT         ?C_C51STARTUP
+            CODE    000FH     000AH     UNIT         ?PR?MAIN?LED
+            CODE    0019H     0006H     UNIT         ?PR?MIAN?LED_STAR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Led1 (LED)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Led1 (LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:0090H.0       PUBLIC        LED1
+  B:0090H.1       PUBLIC        LED2
+  B:0090H.4       PUBLIC        LED5
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:000FH         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/06/2021  21:07:31  PAGE 2
+
+
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:000FH         LINE#         7
+  C:000FH         LINE#         8
+  C:000FH         LINE#         9
+  C:0011H         LINE#         10
+  C:0013H         LINE#         11
+  C:0015H         LINE#         13
+  C:0018H         LINE#         14
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED
+
+  -------         MODULE        LED_STAR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0019H         PUBLIC        mian
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MIAN
+  C:0019H         LINE#         4
+  C:0019H         LINE#         6
+  C:0019H         LINE#         7
+  C:001CH         LINE#         8
+  C:001EH         LINE#         9
+  -------         ENDPROC       MIAN
+  -------         ENDMOD        LED_STAR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MIAN?LED_STAR
+
+Program Size: data=9.0 xdata=0 code=31
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

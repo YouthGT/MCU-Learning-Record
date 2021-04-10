@@ -1,0 +1,38 @@
+C51 COMPILER V9.57.0.0   LED                                                               01/06/2021 21:07:31 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\Objects\LED.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE LED.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\LED.l
+                    -st) TABS(2) OBJECT(.\Objects\LED.obj)
+
+line level    source
+
+   1          #include <reg52.h>//引用51头文件
+   2          
+   3          sbit LED1 = P1^0;
+   4          sbit LED2 = P1^1;
+   5          sbit LED5 = P1^4;
+   6          
+   7          int main()//主函数
+   8          {
+   9   1        LED1 = 0;
+  10   1        LED2 = 0;
+  11   1        LED5 = 0;
+  12   1        
+  13   1        return 0; 
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     10    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
