@@ -1,0 +1,3 @@
+".\Objects\buzzer.obj" 
+TO ".\Objects\·äÃùÆ÷Buzzer" 
+PRINT(".\Listings\·äÃùÆ÷Buzzer.m51") RAMSIZE(256) 
