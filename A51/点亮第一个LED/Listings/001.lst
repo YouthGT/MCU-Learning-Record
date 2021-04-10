@@ -1,0 +1,30 @@
+A51 MACRO ASSEMBLER  001                                                                  04/10/2021 15:49:16 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\001.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 001.a51 SET(SMALL) DEBUG PRINT(.\Listings\001.lst) OBJECT(.\Objects\001
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H ;伪指令，程序起始位置，可以给堆栈留位置
+0000 74FE              2     MOV A,#11111110B ;低电平点亮LED
+0002 F5A0              3     MOV P2,A ;送给P0口
+0004 80FE              4     JMP $ ;跳转到当前的地址
+                       5     END
+A51 MACRO ASSEMBLER  001                                                                  04/10/2021 15:49:16 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
