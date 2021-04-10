@@ -1,0 +1,79 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/06/2021  21:51:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\LED Flash.obj TO .\Objects\LED Flash PRINT (.\Listings\LED Flash.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\LED Flash.obj (LED_FLASH)
+
+
+LINK MAP OF MODULE:  .\Objects\LED Flash (LED_FLASH)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?LED_FLASH
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     002EH     UNIT         ?PR?MIAN?LED_FLASH
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\LED Flash (LED_FLASH)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\LED Flash (LED_FLASH)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_FLASH
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0000H         PUBLIC        mian
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:0008H         PUBLIC        i
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MIAN
+  C:0000H         LINE#         6
+  C:0000H         LINE#         8
+  C:0000H         LINE#         9
+  C:0000H         LINE#         10
+  C:0000H         LINE#         11
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/06/2021  21:51:46  PAGE 2
+
+
+  C:0003H         LINE#         12
+  C:0009H         LINE#         13
+  C:0016H         LINE#         14
+  C:0019H         LINE#         15
+  C:001FH         LINE#         16
+  -------         ENDPROC       MIAN
+  -------         ENDMOD        LED_FLASH
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MIAN?LED_FLASH
+
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+
+Program Size: data=10.0 xdata=0 code=46
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
