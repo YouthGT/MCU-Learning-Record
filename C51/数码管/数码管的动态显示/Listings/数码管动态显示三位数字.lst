@@ -1,0 +1,24 @@
+C51 COMPILER V9.57.0.0   ______________________                                            01/10/2021 22:10:58 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ______________________
+OBJECT MODULE PLACED IN .\Objects\数码管动态显示三位数字.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE 数码管动态显示三位数字.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRI
+                    -NT(.\Listings\数码管动态显示三位数字.lst) TABS(2) OBJECT(.\Objects\数码管动态显示三位数字.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    182    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

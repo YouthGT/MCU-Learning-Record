@@ -1,0 +1,126 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/16/2021  22:11:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\数码管动态显示 课堂.obj TO .\Objects\数码管动态显示 PRINT (.\Listings\数码管动态显
+>> 示.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\数码管动态显示 课堂.obj (___________________)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\数码管动态显示 (___________________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0038H     UNIT         ?PR?MAIN?___________________
+            CODE    003BH     0024H     UNIT         ?PR?_DELAY?___________________
+            CODE    005FH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\数码管动态显示 (___________________)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?___________________
+
+?PR?MAIN?___________________
+  +--> ?PR?_DELAY?___________________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\数码管动态显示 (___________________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ___________________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0041H         PUBLIC        _delay
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/16/2021  22:11:25  PAGE 2
+
+
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0003H         LINE#         13
+  C:0003H         LINE#         14
+  C:0003H         LINE#         15
+  C:0003H         LINE#         16
+  C:0003H         LINE#         17
+  C:0006H         LINE#         18
+  C:0008H         LINE#         19
+  C:000BH         LINE#         20
+  C:000DH         LINE#         22
+  C:000FH         LINE#         23
+  C:0012H         LINE#         24
+  C:0012H         LINE#         25
+  C:0015H         LINE#         27
+  C:0018H         LINE#         28
+  C:001AH         LINE#         29
+  C:001DH         LINE#         30
+  C:001FH         LINE#         32
+  C:0021H         LINE#         33
+  C:0024H         LINE#         34
+  C:0024H         LINE#         35
+  C:0027H         LINE#         37
+  C:002AH         LINE#         38
+  C:002CH         LINE#         39
+  C:002FH         LINE#         40
+  C:0031H         LINE#         42
+  C:0033H         LINE#         43
+  C:0036H         LINE#         44
+  C:0036H         LINE#         45
+  C:0039H         LINE#         47
+  -------         ENDPROC       MAIN
+  C:003BH         SYMBOL        L?0014
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  C:003BH         SYMBOL        L?0014
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:0041H         LINE#         51
+  C:0041H         LINE#         52
+  C:0041H         LINE#         54
+  C:004AH         LINE#         55
+  C:005EH         LINE#         57
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        ___________________
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/16/2021  22:11:25  PAGE 3
+
+
+Program Size: data=9.0 xdata=0 code=107
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
