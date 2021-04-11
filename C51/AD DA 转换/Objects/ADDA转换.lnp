@@ -1,0 +1,4 @@
+".\Objects\ADDA×ª»».obj",
+".\Objects\IIC.obj" 
+TO ".\Objects\ADDA×ª»»" 
+PRINT(".\Listings\ADDA×ª»».m51") RAMSIZE(256) 

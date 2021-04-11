@@ -1,0 +1,121 @@
+C51 COMPILER V9.57.0.0   ADDA____                                                          02/07/2021 13:53:43 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ADDA____
+OBJECT MODULE PLACED IN .\Objects\ADDA转换.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE ADDA转换.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -ADDA转换.lst) OBJECT(.\Objects\ADDA转换.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          #include <IIC.h>
+   4          
+   5          #define uchar unsigned char
+   6          #define uint unsigned int
+   7          #define CH0 0
+   8          #define CH1 1
+   9          #define CH2 2
+  10          #define CH3 3
+  11          
+  12          
+  13          sbit DU = P2^6;//数码管段选
+  14          sbit WE = P2^7;//数码管段选
+  15          sbit key_s2 = P3^0;//独立按键S2
+  16          sbit key_s3 = P3^1;//独立按键S3
+  17          extern bit AckFlag;//应答标志位
+  18          uint num;//数码管显示的值
+  19          
+  20          
+  21          //共阴数码管段选表0-9
+  22          uchar code SMGduan[]= {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
+  23          //数码管位选码
+  24          uchar code SMGwei[] = {0xfe, 0xfd, 0xfb};
+  25          
+  26          void delay(uint z);
+  27          void timer0Init();
+  28          void display(uint i);
+  29          
+  30          void main()
+  31          {
+  32   1              timer0Init();//定时器0初始化    
+  33   1              while(1)
+  34   1              {
+  35   2                      EA = 0;//屏蔽中断
+  36   2                      num = PCF8591Read(CH1);
+  37   2                      EA = 1;//开中断
+  38   2                      delay(5);       }
+  39   1              
+  40   1      }
+  41          
+  42          
+  43          void delay(uint z)
+  44          {
+  45   1              uint x,y;
+  46   1              for(x = z; x > 0; x--)
+  47   1                      for(y = 114; y > 0 ; y--);              
+  48   1      } 
+  49          //定时器0初始化函数
+  50          void timer0Init()
+  51          {
+  52   1              EA = 1;//打开总中断
+  53   1              ET0 = 1;//打开定时器0中断
+  54   1              TR0 = 1;//启动定时器0
+C51 COMPILER V9.57.0.0   ADDA____                                                          02/07/2021 13:53:43 PAGE 2   
+
+  55   1              TMOD = 0x01;//定时器工作模式16位定时模式
+  56   1              TH0 = 0xed;
+  57   1              TL0 = 0xff;//定时5ms
+  58   1      }
+  59          //定时器0中断函数
+  60          void timer0() interrupt 1
+  61          {
+  62   1          TH0 = 0xed;
+  63   1              TL0 = 0xff;//定时5ms
+  64   1              display(num);//数码管显示
+  65   1      }
+  66          //数码管显示函数
+  67          void display(uint i)
+  68          {
+  69   1              static uchar wei;//静态局部变量
+  70   1              P0 = 0xff;
+  71   1              WE = 1;
+  72   1              P0 = SMGwei[wei];
+  73   1              WE = 0;
+  74   1              switch(wei)
+  75   1              {
+  76   2                      case 0:
+  77   2                              DU = 1;
+  78   2                              P0 = SMGduan[i / 100];
+  79   2                              DU = 0;
+  80   2                              break;
+  81   2                      case 1:
+  82   2                              DU = 1;
+  83   2                              P0 = SMGduan[i % 100 / 10];
+  84   2                              DU = 0;
+  85   2                              break;
+  86   2                      case 2:
+  87   2                              DU = 1;
+  88   2                              P0 = SMGduan[i % 10];
+  89   2                              DU = 0;
+  90   2                              break;
+  91   2              }
+  92   1              wei++;
+  93   1              if(wei == 3)
+  94   1                      wei = 0;
+  95   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    244    ----
+   CONSTANT SIZE    =     13    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

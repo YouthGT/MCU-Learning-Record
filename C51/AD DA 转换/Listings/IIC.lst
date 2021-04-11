@@ -1,0 +1,212 @@
+C51 COMPILER V9.57.0.0   IIC                                                               02/07/2021 13:51:48 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE IIC
+OBJECT MODULE PLACED IN .\Objects\IIC.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE IIC.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\IIC.l
+                    -st) OBJECT(.\Objects\IIC.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define PCF8591ADDR 0X90   //PCF8591硬件地址
+   6          #define IICRead 1                  //IIC读方向位
+   7          #define IICWrite 0                 //IIC写方向位
+   8          
+   9          sbit SCL = P2^1;//I2C时钟总线
+  10          sbit SDA = P2^0;//I2C数据总线
+  11          bit AckFlag;//应答标志位
+  12          
+  13          //延时函数
+  14          void delay5us()
+  15          {
+  16   1              _nop_();
+  17   1      }
+  18          /*====================================
+  19          函数    ：IICStart()
+  20          参数    ：无
+  21          返回值  ：无
+  22          描述    ：IIC总线起始信号
+  23          ====================================*/
+  24          void IICStart()
+  25          {
+  26   1              SCL = 1;
+  27   1              SDA = 1;
+  28   1              delay5us();
+  29   1              SDA = 0;
+  30   1              delay5us();
+  31   1      } 
+  32          /*====================================
+  33          函数    ：IICStop()
+  34          参数    ：无
+  35          返回值  ：无
+  36          描述    ：IIC总线停止信号
+  37          ====================================*/
+  38          void IICStop()
+  39          {
+  40   1              SCL = 0;
+  41   1              SDA = 0;
+  42   1              SCL = 1;
+  43   1              delay5us();//状态保持5us
+  44   1              SDA = 1;
+  45   1              delay5us();//状态保持5us        
+  46   1      }
+  47          /*====================================
+  48          函数    ：ReadACK()
+  49          参数    ：无
+  50          返回值  ：1非应答，0应答
+  51          描述    ：IIC总线读从机应答信号
+  52          ====================================*/
+  53          bit ReadACK()
+  54          {
+C51 COMPILER V9.57.0.0   IIC                                                               02/07/2021 13:51:48 PAGE 2   
+
+  55   1              SCL = 0;//拉低时钟总线，允许从机控制SDA
+  56   1              SCL = 1;//拉高读SDA
+  57   1              delay5us();
+  58   1              if(SDA)//SDA为高电平
+  59   1              {
+  60   2                      SCL = 0;
+  61   2                      return(1);
+  62   2              }
+  63   1              else
+  64   1              {
+  65   2                      SCL = 0;
+  66   2                      return(0);
+  67   2              }
+  68   1      }
+  69          /*====================================
+  70          函数    ：SendACK(bit i)
+  71          参数    ：1主机发送非应答，0发送应答
+  72          返回值  ：无
+  73          描述    ：主机发送应答信号
+  74          ====================================*/
+  75          void SendACK(bit i)
+  76          {
+  77   1              SCL = 0;
+  78   1              if(i)
+  79   1                      SDA = 1;
+  80   1              else
+  81   1                      SDA = 0;
+  82   1              SCL = 1;
+  83   1              delay5us();
+  84   1              SCL = 0;
+  85   1              SDA = 1;//释放数据总线
+  86   1      }
+  87          /*====================================
+  88          函数    ：IICSendByte(uchar DAT)
+  89          参数    ：DAT需要发送的数据
+  90          返回值  ：无
+  91          描述    ：IIC发送一个字节数据
+  92          ====================================*/
+  93          void IICSendByte(uchar DAT)
+  94          {
+  95   1              uchar i;
+  96   1              for (i =0;i<8;i++)//利用左移运算符发送数据
+  97   1              {
+  98   2                      SCL = 0;
+  99   2                      if(DAT & 0x80)
+ 100   2                              SDA = 1;
+ 101   2                      else
+ 102   2                              SDA = 0;
+ 103   2                      SCL = 1;
+ 104   2                      DAT <<= 1; 
+ 105   2              }
+ 106   1              SCL= 0;
+ 107   1              SDA = 1;//释放总线
+ 108   1      }
+ 109          /*====================================
+ 110          函数    ：PCF8591Write(uchar ADDR, DAT)
+ 111          参数    ：ADDR 单元地址0-255，DAT 需要输入的数据0-255
+ 112          返回值  ：无
+ 113          描述    ：PCF8591指定单元写入一个字节数据
+ 114          ====================================*/
+ 115          //void PCF8591Write(uchar ADDR,DAT)
+ 116          //{
+C51 COMPILER V9.57.0.0   IIC                                                               02/07/2021 13:51:48 PAGE 3   
+
+ 117          //      IICStart();//IIC起始信号
+ 118          //      IICSendByte(PCF8591ADDR + IICWrite);
+ 119          //      if (ReadACK())//读从机应答
+ 120          //              AckFlag = 1;//NoAck
+ 121          //      else
+ 122          //              AckFlag = 0;//Ack
+ 123          //      IICSendByte(ADDR);//发送储存单元地址字节
+ 124          //      if(ReadACK())//读从机应答
+ 125          //              AckFlag = 1;//NoAck
+ 126          //      else
+ 127          //              AckFlag = 0;//ACk
+ 128          //      IICSendByte(DAT);
+ 129          //      if(ReadACK())
+ 130          //              AckFlag = 1;
+ 131          //      else 
+ 132          //              AckFlag = 0;
+ 133          //      IICStop();//IIC停止信号 
+ 134          //}
+ 135          /*====================================
+ 136          函数    ：IICReadByte()
+ 137          参数    ：无
+ 138          返回值  ：返回读出的一字节数据
+ 139          描述    ：IIC总线读一字节数据
+ 140          ====================================*/
+ 141          uchar IICReadByte()
+ 142          {
+ 143   1              uchar i,DAT;
+ 144   1              for(i = 0;i < 8;i++)//分别读八次，每次读一位
+ 145   1              {
+ 146   2                      DAT <<= 1;//数据左移准备接受下一位
+ 147   2                      SCL = 0;//拉低时钟总线，允许从机控制SDA变化
+ 148   2                      SCL = 1;//拉高时钟总线，读取SDA上的数据
+ 149   2                      if(SDA)
+ 150   2                              DAT |=0x01;
+ 151   2              }
+ 152   1              return (DAT);//读出返回的数据
+ 153   1      }
+ 154          /*====================================
+ 155          函数    ：PCF8591Read(uchar ADDR)
+ 156          参数    ：ADDR 单元地址 0-255
+ 157          返回值  ：返回指定单元的数据
+ 158          描述    ：读PCF8591指定单元内数据
+ 159          ====================================*/
+ 160          uchar PCF8591Read(uchar Ctrl)
+ 161          {
+ 162   1              uchar DAT;
+ 163   1              IICStart();//IIC起始信号
+ 164   1              IICSendByte(PCF8591ADDR + IICWrite);//发送器件地址加读写方向位
+ 165   1              if(ReadACK())//读从机应答
+ 166   1                      AckFlag = 1;    //NOACK
+ 167   1              else
+ 168   1                      AckFlag = 0;    //ACK
+ 169   1              IICSendByte(Ctrl);//IIC发送一个字节
+ 170   1              ReadACK();//读从机应答
+ 171   1              IICStart();//再次产生IIC起始信号
+ 172   1              IICSendByte(PCF8591ADDR + IICRead);//发送器件地址加读写方向位 读
+ 173   1              if(ReadACK())//读从机应答
+ 174   1                      AckFlag = 1;    //NOACK
+ 175   1              else
+ 176   1                      AckFlag = 0;    //ACK
+ 177   1              DAT = IICReadByte();//读一字节
+ 178   1              SendACK(1);//主机发送非应答
+C51 COMPILER V9.57.0.0   IIC                                                               02/07/2021 13:51:48 PAGE 4   
+
+ 179   1              IICStop(); //IIC停止信号
+ 180   1              return(DAT);//返回读出数据
+ 181   1      }
+ 182          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    173    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
