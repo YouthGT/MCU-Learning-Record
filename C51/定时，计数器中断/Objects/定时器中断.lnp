@@ -1,0 +1,3 @@
+".\Objects\中断.obj" 
+TO ".\Objects\定时器中断" 
+PRINT(".\Listings\定时器中断.m51") RAMSIZE(256) 
