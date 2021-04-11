@@ -1,0 +1,169 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/11/2021  17:02:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\æÿ’Ûº¸≈Ã.obj TO .\Objects\æÿ’Ûº¸≈Ã PRINT (.\Listings\æÿ’Ûº¸≈Ã.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\æÿ’Ûº¸≈Ã.obj (________)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\æÿ’Ûº¸≈Ã (________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?________
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     009FH     UNIT         ?PR?KEYSCAN?________
+            CODE    00A2H     008CH     UNIT         ?C_C51STARTUP
+            CODE    012EH     001EH     UNIT         ?PR?_DELAY?________
+            CODE    014CH     0018H     UNIT         ?PR?MAIN?________
+            CODE    0164H     0016H     UNIT         ?CO?________
+            CODE    017AH     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\æÿ’Ûº¸≈Ã (________)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?________
+  +--> ?C_INITSEG
+
+?PR?MAIN?________
+  +--> ?PR?KEYSCAN?________
+  +--> ?CO?________
+
+?PR?KEYSCAN?________
+  +--> ?PR?_DELAY?________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\æÿ’Ûº¸≈Ã (________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/11/2021  17:02:37  PAGE 2
+
+
+
+  -------         MODULE        ________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0164H         PUBLIC        table
+  D:00A8H         PUBLIC        IE
+  C:012EH         PUBLIC        _delay
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  C:014CH         PUBLIC        main
+  D:0008H         PUBLIC        KeyValue
+  C:0003H         PUBLIC        KeyScan
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0009H         PUBLIC        num
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:014CH         LINE#         26
+  C:014CH         LINE#         27
+  C:014CH         LINE#         28
+  C:014EH         LINE#         29
+  C:0151H         LINE#         30
+  C:0153H         LINE#         33
+  C:0153H         LINE#         34
+  C:0153H         LINE#         37
+  C:0156H         LINE#         39
+  C:0158H         LINE#         40
+  C:0160H         LINE#         41
+  C:0162H         LINE#         43
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:012EH         LINE#         47
+  C:012EH         LINE#         48
+  C:012EH         LINE#         50
+  C:0137H         LINE#         51
+  C:014BH         LINE#         52
+  -------         ENDPROC       _DELAY
+  -------         PROC          KEYSCAN
+  C:0003H         LINE#         54
+  C:0003H         LINE#         55
+  C:0003H         LINE#         56
+  C:0006H         LINE#         57
+  C:000CH         LINE#         58
+  C:000CH         LINE#         59
+  C:0013H         LINE#         60
+  C:0019H         LINE#         61
+  C:0019H         LINE#         62
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/11/2021  17:02:37  PAGE 3
+
+
+  C:002CH         LINE#         63
+  C:002CH         LINE#         64
+  C:002FH         LINE#         65
+  C:0031H         LINE#         66
+  C:0034H         LINE#         67
+  C:0036H         LINE#         68
+  C:0039H         LINE#         69
+  C:003BH         LINE#         70
+  C:003EH         LINE#         71
+  C:003EH         LINE#         73
+  C:003EH         LINE#         74
+  C:0041H         LINE#         75
+  C:0051H         LINE#         76
+  C:0051H         LINE#         77
+  C:0051H         LINE#         78
+  C:0053H         LINE#         79
+  C:0055H         LINE#         80
+  C:0057H         LINE#         81
+  C:0059H         LINE#         82
+  C:005BH         LINE#         83
+  C:0061H         LINE#         84
+  C:0061H         LINE#         85
+  C:0061H         LINE#         86
+  C:0066H         LINE#         87
+  C:0066H         LINE#         88
+  C:0066H         LINE#         89
+  C:0069H         LINE#         90
+  C:006CH         LINE#         91
+  C:006CH         LINE#         92
+  C:0073H         LINE#         93
+  C:0078H         LINE#         94
+  C:008AH         LINE#         95
+  C:008AH         LINE#         96
+  C:008FH         LINE#         97
+  C:0094H         LINE#         98
+  C:0099H         LINE#         99
+  C:009CH         LINE#         101
+  C:009CH         LINE#         102
+  C:00A1H         LINE#         104
+  C:00A1H         LINE#         105
+  -------         ENDPROC       KEYSCAN
+  -------         ENDMOD        ________
+
+Program Size: data=11.0 xdata=0 code=382
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
