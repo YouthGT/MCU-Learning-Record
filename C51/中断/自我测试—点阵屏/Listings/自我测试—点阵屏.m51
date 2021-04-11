@@ -1,0 +1,128 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/14/2021  20:02:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\◊‘Œ“≤‚ ‘°™µ„’Û∆¡.obj TO .\Objects\◊‘Œ“≤‚ ‘°™µ„’Û∆¡ PRINT (.\Listings\◊‘Œ“≤‚ ‘°™µ„’
+>> Û∆¡.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\◊‘Œ“≤‚ ‘°™µ„’Û∆¡.obj (________________)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\◊‘Œ“≤‚ ‘°™µ„’Û∆¡ (________________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0093H     UNIT         ?PR?MAIN?________________
+            CODE    0096H     0028H     UNIT         ?CO?________________
+            CODE    00BEH     0026H     UNIT         ?PR?_SEND_BYTE?________________
+            CODE    00E4H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\◊‘Œ“≤‚ ‘°™µ„’Û∆¡ (________________)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?________________
+
+?PR?MAIN?________________               0008H    0008H
+  +--> ?CO?________________
+  +--> ?PR?_SEND_BYTE?________________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\◊‘Œ“≤‚ ‘°™µ„’Û∆¡ (________________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ________________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:00BEH         PUBLIC        _Send_Byte
+  D:00B0H         PUBLIC        P3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/14/2021  20:02:34  PAGE 2
+
+
+  C:0096H         PUBLIC        table
+  B:00B0H.6       PUBLIC        R_CLK
+  B:00B0H.5       PUBLIC        S_CLK
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00B0H.4       PUBLIC        DIO
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        j
+  D:000AH         SYMBOL        k
+  D:000CH         SYMBOL        z
+  D:000EH         SYMBOL        ROW
+  -------         ENDDO         
+  C:0003H         LINE#         21
+  C:0003H         LINE#         22
+  C:0003H         LINE#         24
+  C:0009H         LINE#         25
+  C:0009H         LINE#         26
+  C:0009H         LINE#         27
+  C:000EH         LINE#         28
+  C:000EH         LINE#         29
+  C:0013H         LINE#         30
+  C:0013H         LINE#         31
+  C:0018H         LINE#         32
+  C:0018H         LINE#         33
+  C:0042H         LINE#         34
+  C:0049H         LINE#         35
+  C:004BH         LINE#         36
+  C:004DH         LINE#         37
+  C:005DH         LINE#         38
+  C:006EH         LINE#         39
+  C:007FH         LINE#         40
+  -------         ENDPROC       MAIN
+  -------         PROC          _SEND_BYTE
+  D:0006H         SYMBOL        dat
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:00BEH         LINE#         44
+  C:00BEH         LINE#         45
+  C:00BEH         LINE#         47
+  C:00C1H         LINE#         48
+  C:00C1H         LINE#         49
+  C:00C3H         LINE#         50
+  C:00C5H         LINE#         51
+  C:00C9H         LINE#         52
+  C:00CDH         LINE#         54
+  C:00CFH         LINE#         55
+  C:00D6H         LINE#         56
+  C:00D8H         LINE#         57
+  C:00E3H         LINE#         58
+  -------         ENDPROC       _SEND_BYTE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/14/2021  20:02:34  PAGE 3
+
+
+  -------         ENDMOD        ________________
+
+Program Size: data=17.0 xdata=0 code=240
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

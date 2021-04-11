@@ -1,0 +1,3 @@
+".\Objects\自我测试—点阵屏.obj" 
+TO ".\Objects\自我测试—点阵屏" 
+PRINT(".\Listings\自我测试—点阵屏.m51") RAMSIZE(256) 

@@ -1,0 +1,84 @@
+C51 COMPILER V9.57.0.0   ________________                                                  01/14/2021 20:02:34 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ________________
+OBJECT MODULE PLACED IN .\Objects\自我测试—点阵屏.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE 自我测试—点阵屏.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\自我测试—点阵屏.lst) OBJECT(.\Objects\自我测试—点阵屏.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          
+   4          #define uint unsigned int 
+   5          typedef unsigned char uchar;
+   6          
+   7          sbit DIO = P3^4;//串行数据口
+   8          sbit S_CLK = P3^5;//移位寄存器时钟
+   9          sbit R_CLK = P3^6;//输出寄存器时钟
+  10          
+  11          uchar code table[5][8] = {
+  12          0xE0, 0xEE, 0x01, 0x6D, 0x01, 0x6D, 0x01, 0xEF, 
+  13          0xEF, 0xC7, 0x97, 0xF7, 0x00, 0xE7, 0xF9, 0x81,
+  14          0x81, 0x81, 0xE7, 0xE7, 0xE7, 0xC7, 0xC7, 0xE7,
+  15          0x81, 0x81, 0xC7, 0xF3, 0xF9, 0x99, 0x81, 0xC3,
+  16          0xC3, 0x81, 0x99, 0xF9, 0xE3, 0x99, 0x81, 0xC3          
+  17          };//输出字符的取模多维数组
+  18          
+  19          void Send_Byte(uint dat);//声明自定义函数
+  20          
+  21          void main()//main函数会循环！！！！
+  22          {
+  23   1          uint j,k,z,ROW;
+  24   1              ROW = 0x80;//行值初始化
+  25   1              while(1)           //使其循环显示
+  26   1              {
+  27   2                      for(k=0;k<5;k++)//分别输出五个字符
+  28   2                      {
+  29   3                              for(z=0;z<100;z++)//延时作用，让一个字符显示一段时间
+  30   3                              {
+  31   4                                      for (j = 0;j<8; j++)//分别显示八行
+  32   4                                              {
+  33   5                                                 Send_Byte(table[k][j]);//将列信号输入
+  34   5                                                 Send_Byte(ROW);//将行信号输入，给一行高电平
+  35   5                                                 R_CLK = 1;//产生上升沿，将其并行输出
+  36   5                                                 R_CLK = 0;//为下一次上升沿准备
+  37   5                                                 ROW = _cror_(ROW,1);//将点亮的行线下移
+  38   5                                              }
+  39   4                           }
+  40   3                      }
+  41   2          }
+  42   1      }
+  43          
+  44          void Send_Byte(uint dat)//发送字节函数
+  45          {
+  46   1              uint i;
+  47   1              for (i=0;i<8;i++)//进行串行输入
+  48   1              {
+  49   2                      S_CLK = 0;//为上升沿做准备
+  50   2                      R_CLK = 0;//为上升沿做准备
+  51   2                      if(dat & 0x01)//按位与操作，都真为真
+  52   2                              DIO = 1;
+  53   2                      else
+  54   2                              DIO = 0;
+C51 COMPILER V9.57.0.0   ________________                                                  01/14/2021 20:02:34 PAGE 2   
+
+  55   2                      dat >>= 1;//右移运算符
+  56   2                      S_CLK = 1;//产生上升沿输入字节
+  57   2              }
+  58   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    185    ----
+   CONSTANT SIZE    =     40    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
