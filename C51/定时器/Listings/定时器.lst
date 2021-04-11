@@ -1,0 +1,120 @@
+C51 COMPILER V9.57.0.0   ______                                                            01/16/2021 22:15:39 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ______
+OBJECT MODULE PLACED IN .\Objects\定时器.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE 定时器.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\定
+                    -时器.lst) OBJECT(.\Objects\定时器.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          
+   4          #define uint unsigned int
+   5          #define uchar unsigned char 
+   6                  
+   7          sbit WE = P2^7;
+   8          sbit DU = P2^6;
+   9          
+  10          void timer0Init();
+  11          void display(uint i);
+  12          void delay (uint z);
+  13          
+  14          //共阴极数码管段选数组0-9
+  15          uchar code table[] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};//将数组储存在ROM区
+  16          
+  17          void main()
+  18          {
+  19   1              uchar mSec, Sec;
+  20   1              timer0Init();
+  21   1              while(1)
+  22   1              {
+  23   2                       if(TF0 == 1)//
+  24   2                       {
+  25   3                               TF0 = 0;
+  26   3                               TH0 = 0X4b;
+  27   3                               TL0 = 0Xfd;
+  28   3                               mSec++;//
+  29   3                               if(mSec == 20)
+  30   3                               {
+  31   4                                      mSec = 0;
+  32   4                                       Sec++;
+  33   4                               }
+  34   3                       }
+  35   2                       display(Sec);
+  36   2               }      
+  37   1      }
+  38          //定时器0初始化
+  39          void timer0Init()
+  40          {
+  41   1              TR0 = 1;//启动定时器0
+  42   1              TMOD = 0x01;//定时器工作模式
+  43   1              TH0 = 75;
+  44   1              TL0 = 253;
+  45   1              
+  46   1      }
+  47          //延时函数
+  48          void delay (uint z)
+  49          {
+  50   1              uint x,y;
+  51   1              for (x = z; x > 0; x--)
+  52   1                      for(y = 114; y > 0; y--);
+  53   1      }
+  54          void display(uint i)
+C51 COMPILER V9.57.0.0   ______                                                            01/16/2021 22:15:39 PAGE 2   
+
+  55          {
+  56   1              uint bai,shi,ge;
+  57   1              bai = i / 100;
+  58   1              shi = i %100 / 10;
+  59   1              ge = i % 10;
+  60   1      
+  61   1              //
+  62   1              P0 = 0xff;//
+  63   1              WE = 1;
+  64   1              P0 = 0xfe;//1111 1110
+  65   1              WE = 0;
+  66   1              
+  67   1              DU = 1;
+  68   1              P0 = table[bai];
+  69   1              DU = 0;
+  70   1              delay(5);
+  71   1              
+  72   1              //
+  73   1              P0 = 0xff;//
+  74   1              WE = 1;
+  75   1              P0 = 0xfd;//1111 1101
+  76   1              WE = 0;
+  77   1              
+  78   1              DU = 1;
+  79   1              P0 = table[shi];
+  80   1              DU = 0;
+  81   1              delay(5);
+  82   1              
+  83   1              //
+  84   1              P0 = 0xff;//
+  85   1              WE = 1;
+  86   1              P0 = 0xfb;//1111 1011
+  87   1              WE = 0;
+  88   1              
+  89   1              DU = 1;
+  90   1              P0 = table[ge];
+  91   1              DU = 0;
+  92   1              delay(5);       
+  93   1      
+  94   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    238    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
