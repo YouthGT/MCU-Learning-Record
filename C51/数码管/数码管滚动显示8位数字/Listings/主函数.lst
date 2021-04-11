@@ -1,0 +1,24 @@
+C51 COMPILER V9.57.0.0   ______                                                            02/08/2021 15:33:52 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ______
+OBJECT MODULE PLACED IN .\Objects\主函数.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE 主函数.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\主
+                    -函数.lst) OBJECT(.\Objects\主函数.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    136    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

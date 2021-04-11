@@ -1,0 +1,155 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/09/2021  21:04:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\数码管动态显示三位数字.obj TO .\Objects\shumaguan PRINT (.\Listings\shumaguan.m51)
+>>  RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\数码管动态显示三位数字.obj (______________________)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\shumaguan (______________________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0085H     UNIT         ?PR?_DISPLAY?______________________
+            CODE    0088H     0055H     UNIT         ?C?LIB_CODE
+            CODE    00DDH     002AH     UNIT         ?PR?_DELAY?______________________
+            CODE    0107H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0113H     000AH     UNIT         ?CO?______________________
+            CODE    011DH     0007H     UNIT         ?PR?MAIN?______________________
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\shumaguan (______________________)
+
+
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?C_C51STARTUP                               -----    -----
+  +--> ?PR?MAIN?______________________
+
+?PR?MAIN?______________________             -----    -----
+  +--> ?PR?_DISPLAY?______________________
+
+?PR?_DISPLAY?______________________         0008H    0004H
+  +--> ?CO?______________________
+  +--> ?PR?_DELAY?______________________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\shumaguan (______________________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/09/2021  21:04:34  PAGE 2
+
+
+
+  -------         MODULE        ______________________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0113H         PUBLIC        table
+  D:00A8H         PUBLIC        IE
+  C:00E9H         PUBLIC        _delay
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  C:011DH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  C:0003H         PUBLIC        _display
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:011DH         LINE#         17
+  C:011DH         LINE#         18
+  C:011DH         LINE#         19
+  -------         ENDPROC       MAIN
+  C:00DDH         SYMBOL        L?0015
+  -------         PROC          L?0014
+  -------         ENDPROC       L?0014
+  C:00DDH         SYMBOL        L?0015
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:00E9H         LINE#         24
+  C:00E9H         LINE#         25
+  C:00E9H         LINE#         27
+  C:00F2H         LINE#         28
+  C:0106H         LINE#         30
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DISPLAY
+  D:0002H         SYMBOL        i
+  -------         DO            
+  D:0008H         SYMBOL        bai
+  D:000AH         SYMBOL        shi
+  D:0002H         SYMBOL        ge
+  -------         ENDDO         
+  C:0003H         LINE#         32
+  C:0007H         LINE#         33
+  C:0007H         LINE#         35
+  C:0012H         LINE#         36
+  C:002EH         LINE#         37
+  C:003DH         LINE#         39
+  C:003DH         LINE#         40
+  C:003DH         LINE#         42
+  C:0040H         LINE#         43
+  C:0042H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/09/2021  21:04:34  PAGE 3
+
+
+  C:0045H         LINE#         45
+  C:0047H         LINE#         47
+  C:0049H         LINE#         48
+  C:0053H         LINE#         49
+  C:0053H         LINE#         50
+  C:0056H         LINE#         53
+  C:0059H         LINE#         54
+  C:005BH         LINE#         55
+  C:005EH         LINE#         56
+  C:0060H         LINE#         58
+  C:0062H         LINE#         59
+  C:006CH         LINE#         60
+  C:006CH         LINE#         61
+  C:006FH         LINE#         64
+  C:0072H         LINE#         65
+  C:0074H         LINE#         66
+  C:0077H         LINE#         67
+  C:0079H         LINE#         69
+  C:007BH         LINE#         70
+  C:0083H         LINE#         71
+  C:0083H         LINE#         72
+  C:0086H         LINE#         73
+  -------         ENDPROC       _DISPLAY
+  -------         ENDMOD        ______________________
+
+  -------         MODULE        ?C?UIDIV
+  C:0088H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=13.0 xdata=0 code=292
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

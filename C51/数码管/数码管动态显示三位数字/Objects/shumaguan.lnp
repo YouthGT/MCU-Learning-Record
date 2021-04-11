@@ -1,0 +1,3 @@
+".\Objects\数码管动态显示三位数字.obj" 
+TO ".\Objects\shumaguan" 
+PRINT(".\Listings\shumaguan.m51") RAMSIZE(256) 

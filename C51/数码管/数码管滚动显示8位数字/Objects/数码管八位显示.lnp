@@ -1,0 +1,4 @@
+".\Objects\主函数.obj",
+".\Objects\SMG.obj" 
+TO ".\Objects\数码管八位显示" 
+PRINT(".\Listings\数码管八位显示.m51") RAMSIZE(256) 
