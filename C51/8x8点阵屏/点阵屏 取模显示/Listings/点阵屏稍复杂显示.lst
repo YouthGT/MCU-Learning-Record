@@ -1,0 +1,83 @@
+C51 COMPILER V9.57.0.0   ________________                                                  01/13/2021 17:58:35 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ________________
+OBJECT MODULE PLACED IN .\Objects\点阵屏稍复杂显示.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE 点阵屏稍复杂显示.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\点阵屏稍复杂显示.lst) OBJECT(.\Objects\点阵屏稍复杂显示.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          
+   4          #define uint unsigned int
+   5          #define uchar unsigned char
+   6          
+   7          sbit DIO  = P3 ^ 4; //串行数据口
+   8          sbit S_CLK = P3 ^ 5; //移位寄存器时钟
+   9          sbit R_CLK = P3 ^ 6; //输出寄存器时钟
+  10          
+  11          uchar code dianzi[5][8] = {
+  12                  0xE0, 0xEE, 0x01, 0x6D, 0x01, 0x6D, 0x01, 0xEF, //电
+  13                  0xEF, 0xC7, 0x97, 0xF7, 0x00, 0xE7, 0xF9, 0x81,
+  14                  0x00, 0x00, 0xE7, 0xE7, 0xE7, 0xE7, 0xC7, 0xE7,
+  15                  0x81, 0x81, 0xC7, 0xF3, 0xF9, 0x99, 0x81, 0xC3,
+  16                  0xC3, 0x81, 0x99, 0xF9, 0xE3, 0x99, 0x81, 0xC3
+  17          };
+  18          
+  19          void Send_Byte(uchar dat);
+  20          void main() {
+  21   1              uint j, k, z, ROW = 0x80;
+  22   1              while (1) {
+  23   2                      for (k = 0; k < 5; k++) {
+  24   3                              for (z = 0; z < 1000; z++) {
+  25   4                                      for (j = 0; j < 8; j++) {
+  26   5                                              Send_Byte(dianzi[k][j]);//列
+  27   5                                              Send_Byte(ROW);//行
+  28   5                                              R_CLK = 1;
+  29   5                                              R_CLK = 0;
+  30   5                                              ROW = _cror_(ROW, 1);
+  31   5                                      }
+  32   4                              }
+  33   3                      }
+  34   2              }
+  35   1      
+  36   1      }
+  37          
+  38          
+  39          void Send_Byte(uchar dat) {
+  40   1              uchar i;
+  41   1              S_CLK = 0;
+  42   1              R_CLK = 0;
+  43   1              for (i = 0; i < 8; i++) {
+  44   2      
+  45   2                      if (dat & 0x01) //按位与
+  46   2                              DIO = 1;
+  47   2                      else
+  48   2                              DIO = 0;
+  49   2                      S_CLK = 1;
+  50   2                      //dat = dat>>1;
+  51   2                      dat >>= 1;
+  52   2                      S_CLK = 0;
+  53   2              }
+  54   1      }
+C51 COMPILER V9.57.0.0   ________________                                                  01/13/2021 17:58:35 PAGE 2   
+
+  55          
+  56          
+  57          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    169    ----
+   CONSTANT SIZE    =     40    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

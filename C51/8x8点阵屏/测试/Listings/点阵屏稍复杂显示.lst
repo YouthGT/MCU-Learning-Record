@@ -1,0 +1,74 @@
+C51 COMPILER V9.57.0.0   ________________                                                  01/13/2021 13:04:37 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE ________________
+OBJECT MODULE PLACED IN .\Objects\点阵屏稍复杂显示.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE 点阵屏稍复杂显示.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\点阵屏稍复杂显示.lst) OBJECT(.\Objects\点阵屏稍复杂显示.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          
+   4          #define uint unsigned int
+   5          #define uchar unsigned char
+   6          
+   7          sbit DIO  = P3^4;//串行数据口
+   8          sbit S_CLK = P3^5;//移位寄存器时钟
+   9          sbit R_CLK = P3^6;//输出寄存器时钟
+  10           
+  11          //0x81,0xA5,0x81,0x81,0x99,0xA5,0x81,0x81//未命名文件",0
+  12          
+  13          void Send_Byte(uchar dat);
+  14          void main()
+  15          {
+  16   1              //ROW 0x80，COL 0xfe
+  17   1              uchar i, dat;
+  18   1              Send_Byte(0xfe);
+  19   1              Send_Byte(0x4e);
+  20   1              R_CLK = 1;
+  21   1              while(1);
+  22   1      }
+*** WARNING C280 IN LINE 17 OF 点阵屏稍复杂显示.c: 'i': unreferenced local variable
+*** WARNING C280 IN LINE 17 OF 点阵屏稍复杂显示.c: 'dat': unreferenced local variable
+  23          
+  24          
+  25          void Send_Byte(uchar dat)
+  26          {
+  27   1              uchar i;
+  28   1                      S_CLK = 0;
+  29   1                      R_CLK = 0;
+  30   1              for(i = 0; i < 8; i++)
+  31   1              {
+  32   2      
+  33   2                      if(dat & 0x01)//按位与
+  34   2                              DIO = 1;
+  35   2                      else 
+  36   2                              DIO = 0;
+  37   2                      S_CLK = 1;
+  38   2                      //dat = dat>>1;
+  39   2                      dat >>= 1;
+  40   2                      S_CLK = 0;
+  41   2              }
+  42   1      }
+  43                  
+  44          
+  45          
+  46          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     43    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.57.0.0   ________________                                                  01/13/2021 13:04:37 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

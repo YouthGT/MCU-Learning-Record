@@ -1,0 +1,3 @@
+".\Objects\点阵屏稍复杂显示.obj" 
+TO ".\Objects\取模显示" 
+PRINT(".\Listings\取模显示.m51") RAMSIZE(256) 

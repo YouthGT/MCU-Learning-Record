@@ -1,0 +1,4 @@
+".\Objects\µ„’Û∆¡.obj",
+".\Objects\µ„’Û∆¡…‘∏¥‘”œ‘ æ.obj" 
+TO ".\Objects\µ„’Û∆¡" 
+PRINT(".\Listings\µ„’Û∆¡.m51") RAMSIZE(256) 
