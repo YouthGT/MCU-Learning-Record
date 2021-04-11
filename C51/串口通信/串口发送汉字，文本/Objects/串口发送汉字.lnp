@@ -1,0 +1,3 @@
+".\Objects\发送汉字.obj" 
+TO ".\Objects\串口发送汉字" 
+PRINT(".\Listings\串口发送汉字.m51") RAMSIZE(256) 

@@ -1,0 +1,217 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/23/2021  15:30:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\串口通信.obj TO .\Objects\串口通信‘ PRINT (.\Listings\串口通信‘.m51) RAMSIZE (25
+>> 6)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\串口通信.obj (________)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\串口通信‘ (________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?________
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?MAIN?________
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0010H     UNIT         ?PR?TIMER0INIT?________
+                    001EH     0005H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0067H     UNIT         ?PR?_DISPLAY?________
+            CODE    008DH     0055H     UNIT         ?C?LIB_CODE
+            CODE    00E2H     0045H     UNIT         ?PR?TIMER0?________
+            CODE    0127H     0020H     UNIT         ?PR?UART?________
+            CODE    0147H     0016H     UNIT         ?PR?UARTINIT?________
+            CODE    015DH     000DH     UNIT         ?CO?________
+            CODE    016AH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\串口通信‘ (________)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?TIMER0?________
+  +--> ?PR?_DISPLAY?________
+
+?PR?_DISPLAY?________
+  +--> ?CO?________
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?________
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/23/2021  15:30:54  PAGE 2
+
+
+
+?PR?MAIN?________
+  +--> ?PR?TIMER0INIT?________
+  +--> ?PR?UARTINIT?________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\串口通信‘ (________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:015DH         PUBLIC        SMGduan
+  B:00A8H.4       PUBLIC        ES
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:00A0H.7       PUBLIC        WE
+  B:0098H.1       PUBLIC        TI
+  C:0003H         PUBLIC        main
+  C:0167H         PUBLIC        SMGwei
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:0127H         PUBLIC        UART
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  B:0098H.7       PUBLIC        SM0
+  D:008AH         PUBLIC        TL0
+  D:0009H         PUBLIC        num
+  B:0098H.6       PUBLIC        SM1
+  D:008BH         PUBLIC        TL1
+  C:00E2H         PUBLIC        timer0
+  C:0147H         PUBLIC        UARTInit
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  B:0098H.4       PUBLIC        REN
+  D:00C8H         PUBLIC        T2CON
+  C:000EH         PUBLIC        timer0Init
+  C:0026H         PUBLIC        _display
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0003H         LINE#         20
+  C:0003H         LINE#         21
+  C:0003H         LINE#         22
+  C:0006H         LINE#         23
+  C:0009H         LINE#         24
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/23/2021  15:30:54  PAGE 3
+
+
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0INIT
+  C:000EH         LINE#         27
+  C:000EH         LINE#         28
+  C:000EH         LINE#         29
+  C:0010H         LINE#         30
+  C:0012H         LINE#         31
+  C:0014H         LINE#         32
+  C:0017H         LINE#         33
+  C:001AH         LINE#         34
+  C:001DH         LINE#         35
+  -------         ENDPROC       TIMER0INIT
+  -------         PROC          UARTINIT
+  C:0147H         LINE#         37
+  C:0147H         LINE#         38
+  C:0147H         LINE#         39
+  C:0149H         LINE#         40
+  C:014BH         LINE#         41
+  C:014FH         LINE#         42
+  C:0151H         LINE#         43
+  C:0153H         LINE#         44
+  C:0156H         LINE#         45
+  C:0159H         LINE#         46
+  C:015CH         LINE#         47
+  -------         ENDPROC       UARTINIT
+  -------         PROC          TIMER0
+  C:00E2H         LINE#         49
+  C:00FFH         LINE#         51
+  C:0102H         LINE#         52
+  C:0105H         LINE#         53
+  C:010CH         LINE#         54
+  -------         ENDPROC       TIMER0
+  -------         PROC          UART
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  -------         ENDDO         
+  C:0127H         LINE#         56
+  C:012EH         LINE#         59
+  C:0131H         LINE#         60
+  C:0131H         LINE#         61
+  C:0138H         LINE#         62
+  C:013AH         LINE#         63
+  C:013AH         LINE#         64
+  C:013DH         LINE#         65
+  C:013DH         LINE#         66
+  C:0140H         LINE#         67
+  C:0142H         LINE#         68
+  -------         ENDPROC       UART
+  -------         PROC          _DISPLAY
+  D:0006H         SYMBOL        i
+  -------         DO            
+  D:0008H         SYMBOL        wei
+  -------         ENDDO         
+  C:0026H         LINE#         70
+  C:0026H         LINE#         71
+  C:0026H         LINE#         73
+  C:0029H         LINE#         74
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/23/2021  15:30:54  PAGE 4
+
+
+  C:002BH         LINE#         75
+  C:0033H         LINE#         76
+  C:0035H         LINE#         77
+  C:0041H         LINE#         78
+  C:0041H         LINE#         79
+  C:0041H         LINE#         80
+  C:0043H         LINE#         81
+  C:0047H         LINE#         82
+  C:0047H         LINE#         83
+  C:0049H         LINE#         84
+  C:0049H         LINE#         85
+  C:004BH         LINE#         86
+  C:0067H         LINE#         87
+  C:0067H         LINE#         88
+  C:0069H         LINE#         89
+  C:0069H         LINE#         90
+  C:006BH         LINE#         91
+  C:0080H         LINE#         92
+  C:0082H         LINE#         93
+  C:0082H         LINE#         94
+  C:0082H         LINE#         95
+  C:0084H         LINE#         96
+  C:0089H         LINE#         97
+  C:008CH         LINE#         98
+  -------         ENDPROC       _DISPLAY
+  -------         ENDMOD        ________
+
+  -------         MODULE        ?C?UIDIV
+  C:008DH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=12.0 xdata=0 code=369
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

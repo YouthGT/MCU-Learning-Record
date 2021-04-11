@@ -1,0 +1,144 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/23/2021  18:34:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\·¢ËÍºº×Ö.obj TO .\Objects\´®¿Ú·¢ËÍºº×Ö PRINT (.\Listings\´®¿Ú·¢ËÍºº×Ö.m51) RAMSIZE
+>>  (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\·¢ËÍºº×Ö.obj (________)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (PUTS)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\´®¿Ú·¢ËÍºº×Ö (________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     002AH     UNIT         ?PR?_PUTS?PUTS
+            CODE    002DH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0054H     001EH     UNIT         ?PR?_DELAY?________
+            CODE    0072H     001DH     UNIT         ?CO?________
+            CODE    008FH     001CH     UNIT         ?PR?MAIN?________
+            CODE    00ABH     0019H     UNIT         ?C?LIB_CODE
+            CODE    00C4H     0010H     UNIT         ?PR?UARTINIT?________
+            CODE    00D4H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\´®¿Ú·¢ËÍºº×Ö (________)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?________
+
+?PR?MAIN?________
+  +--> ?PR?UARTINIT?________
+  +--> ?CO?________
+  +--> ?PR?_PUTS?PUTS
+  +--> ?PR?_DELAY?________
+
+?PR?_PUTS?PUTS
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/23/2021  18:34:29  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\´®¿Ú·¢ËÍºº×Ö (________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0054H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  B:0098H.1       PUBLIC        TI
+  C:008FH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008DH         PUBLIC        TH1
+  B:0098H.7       PUBLIC        SM0
+  B:0098H.6       PUBLIC        SM1
+  D:008BH         PUBLIC        TL1
+  C:00C4H         PUBLIC        UARTInit
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:008FH         LINE#         10
+  C:008FH         LINE#         11
+  C:008FH         LINE#         12
+  C:0092H         LINE#         13
+  C:0092H         LINE#         14
+  C:0092H         LINE#         15
+  C:0094H         LINE#         16
+  C:009DH         LINE#         17
+  C:00A0H         LINE#         18
+  C:00A2H         LINE#         19
+  C:00A9H         LINE#         20
+  -------         ENDPROC       MAIN
+  -------         PROC          UARTINIT
+  C:00C4H         LINE#         23
+  C:00C4H         LINE#         24
+  C:00C4H         LINE#         25
+  C:00C8H         LINE#         26
+  C:00CAH         LINE#         27
+  C:00CDH         LINE#         28
+  C:00D0H         LINE#         29
+  C:00D3H         LINE#         31
+  -------         ENDPROC       UARTINIT
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:0054H         LINE#         33
+  C:0054H         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/23/2021  18:34:29  PAGE 3
+
+
+  C:0054H         LINE#         36
+  C:005DH         LINE#         37
+  C:0071H         LINE#         38
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        ________
+
+  -------         MODULE        PUTS
+  C:0003H         PUBLIC        _PUTS
+  -------         ENDMOD        PUTS
+
+  -------         MODULE        ?C?CLDPTR
+  C:00ABH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        PUTCHAR
+  C:002DH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+Program Size: data=9.0 xdata=0 code=224
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
