@@ -1,0 +1,4 @@
+".\Objects\IIC通.obj",
+".\Objects\IIC.obj" 
+TO ".\Objects\IIC通信" 
+PRINT(".\Listings\IIC通信.m51")

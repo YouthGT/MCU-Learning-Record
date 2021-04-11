@@ -1,0 +1,24 @@
+[info] Log at : 2021/2/7|09:48:41|GMT+0800
+
+[info] Log at : 2021/2/7|09:50:34|GMT+0800
+
+[info] Log at : 2021/2/7|09:57:06|GMT+0800
+
+[SyntaxError: Unexpected string in JSON at position 800
+	at JSON.parse (<anonymous>)
+	at y.updateCppProperties (c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:10911)
+	at y.<anonymous> (c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:12641)
+	at Generator.next (<anonymous>)
+	at c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4542
+	at new Promise (<anonymous>)
+	at r (c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4287)
+	at y.load (c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:11372)
+	at w.<anonymous> (c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:8799)
+	at Generator.next (<anonymous>)
+	at a (c:\Users\YouthGT\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4344)
+	at processTicksAndRejections (internal/process/task_queues.js:97:5)]
+[info] Log at : 2021/2/7|10:00:18|GMT+0800
+
+[info] Log at : 2021/2/7|13:54:13|GMT+0800
+
+[info] project closed: IIC通信
