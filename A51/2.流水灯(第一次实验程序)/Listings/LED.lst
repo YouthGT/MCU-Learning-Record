@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  LED                                                                  04/15/2021 16:18:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\LED.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE LED.a51 SET(SMALL) DEBUG PRINT(.\Listings\LED.lst) OBJECT(.\Objects\LED
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2                ORG  0000H    ;³ÌÐòÈë¿Ú
+0000 74FF              3            MOV  A,#0FFH   ;È«²¿ÖÃÒ»
+                       4            ;SETB  C       ;½«CYÇåÁã
+0002 C3                5                CLR   C       ;½«CYÖÃÒ»
+0003 33                6     LIGHT: RLC  A        ;AÖÐµÄÊ´ø½øÎ»Ñ­»·×óÒÆ
+0004 F5A0              7                MOV  P2,A     ;½«AÖÐµÄÊ·ÅÈëPx¿Ú
+0006 110A              8            CALL DELAY    ;µ÷ÓÃÑÓÊ±º¯Ê
+0008 0103              9            AJMP LIGHT    ;ÎÞÌõ¼þ×ªÒÆµ½LIGHT
+                      10     
+000A 7AC7             11     DELAY: MOV  R2,#199  ;
+000C 75F0FA           12     LOOPS: MOV  B,#250   ;T=1us
+000F D5F0FD           13     LOOPR: DJNZ B,LOOPR  ;2T=2us
+0012 DAF8             14            DJNZ R2,LOOPS ;2T=2us
+0014 22               15                RET
+                      16                END
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  LED                                                                  04/15/2021 16:18:21 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   000AH   A   
+LIGHT. . . . . . .  C ADDR   0003H   A   
+LOOPR. . . . . . .  C ADDR   000FH   A   
+LOOPS. . . . . . .  C ADDR   000CH   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
