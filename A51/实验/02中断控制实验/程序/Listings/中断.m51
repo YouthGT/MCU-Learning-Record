@@ -1,0 +1,59 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/28/2021  00:41:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\中断.obj TO .\Objects\中断 PRINT (.\Listings\中断.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\中断.obj (____)
+
+
+LINK MAP OF MODULE:  .\Objects\中断 (____)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0214H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\中断 (____)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ____
+  D:00F0H         SYMBOL        B
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.0       SYMBOL        EX0
+  C:0200H         SYMBOL        INT
+  C:0204H         SYMBOL        LIGHT
+  C:020BH         SYMBOL        LOOPR
+  C:0208H         SYMBOL        LOOPS
+  C:0100H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0003H         LINE#         4
+  C:0100H         LINE#         6
+  C:0102H         LINE#         7
+  C:0104H         LINE#         8
+  C:0200H         LINE#         10
+  C:0202H         LINE#         11
+  C:0204H         LINE#         12
+  C:0206H         LINE#         13
+  C:0208H         LINE#         14
+  C:020BH         LINE#         15
+  C:020EH         LINE#         16
+  C:0210H         LINE#         17
+  C:0211H         LINE#         18
+  C:0213H         LINE#         19
+  -------         ENDMOD        ____
+
+Program Size: data=8.0 xdata=0 code=532
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

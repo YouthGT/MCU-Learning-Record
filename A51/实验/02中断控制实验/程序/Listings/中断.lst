@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  ____                                                                 04/28/2021 00:41:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\ÖÐ¶Ï.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE ÖÐ¶Ï.a51 SET(SMALL) DEBUG PRINT(.\Listings\ÖÐ¶Ï.lst) OBJECT(.\Objects\Ö
+                      Ð¶Ï.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                ORG  0000H     ;½«ÏÂÃæµÄ¾ø¶ÔÌø×ªÓï¾ä·Åµ½µØÖ·0100H
+0000 2100              2                AJMP MAIN      ;¾ø¶ÔÌø×ªµ½Ö÷³ÌÐò
+0003                   3                ORG  0003H     ;½«ÏÂÃæµÄ¾ø¶ÔÌø×ªÓï¾ä·Åµ½µØÖ·0003H
+0003 4100              4                AJMP INT           ;¾ø¶ÔÌø×ªµ½INT
+0100                   5                ORG  0100H     ;½«ÏÂÃæ³ÌÐò¿é·Åµ½µØÖ·0100H
+0100 D2A8              6     MAIN:  SETB EX0       ;ÉèÖÃÍâ²¿ÖÐ¶Ï0ÏÂ½µÑØ´¥·¢
+0102 D2AF              7            SETB EA        ;´ò¿ª×ÜÖÐ¶Ï
+0104 80FE              8                SJMP $         ;µÈ´ÖÐ¶Ï
+0200                   9                ORG  0200H     ;½«ÏÂÃæ³ÌÐò¿é·Åµ½µØÖ·0200H       
+0200 7808             10     INT:   MOV  R0,#08H   ;Ñ­»·°Ë´Î
+0202 7401             11            MOV  A,#01H    ;½«01H·ÅÈë£ÁÖÐ 0000 0001×îµÍÎ»µÄµÆÁÁ
+0204 F590             12     LIGHT: MOV  P1,A      ;½«AÖÐµÄÊ·ÅÈëP1¿Ú
+0206 7AC7             13            MOV  R2,#199   ;ÄÚÍâÑ­»·ÑÓÊ±
+0208 75F0FA           14     LOOPS: MOV  B,#250    ;T=1us
+020B D5F0FD           15     LOOPR: DJNZ B,LOOPR   ;2T=2us
+020E DAF8             16            DJNZ R2,LOOPS  ;2T=2us
+0210 23               17                RL   A         ;Ñ­»·×óÒÆ
+0211 D8F1             18            DJNZ R0,LIGHT  ;ÎÞÌõ¼þ×ªÒÆµ½LIGHT
+0213 32               19                RETI           ;ÖÐ¶Ï·µ»Ø
+                      20                END            ;³ÌÐò½áÊø
+A51 MACRO ASSEMBLER  ____                                                                 04/28/2021 00:41:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+INT. . . . . . . .  C ADDR   0200H   A   
+LIGHT. . . . . . .  C ADDR   0204H   A   
+LOOPR. . . . . . .  C ADDR   020BH   A   
+LOOPS. . . . . . .  C ADDR   0208H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
