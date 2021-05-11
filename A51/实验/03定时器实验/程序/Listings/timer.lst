@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  TIMER                                                                05/06/2021 17:21:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\timer.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE timer.a51 SET(SMALL) DEBUG PRINT(.\Listings\timer.lst) OBJECT(.\Objects
+                      \timer.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1          ORG 0000H    ;½«ÏÂÃæµÄ¾ø¶ÔÌø×ªÓï¾ä·Åµ½µØÖ·0100H
+0000 2100              2              AJMP MAIN    ;¾ø¶ÔÌø×ªµ½Ö÷³ÌÐò
+0100                   3              ORG 0100H    ;½«ÏÂÃæ³ÌÐò¿é·Åµ½µØÖ·0100H
+0100 D28C              4     MAIN:SETB TR0     ;´ò¿ª¶¨Ê±Æ÷0
+0102 7F2A              5          MOV R7,#42   ;ÉèÖÃÑ­»·´ÎÊ£¬±£Ö¤ÑÓÊ±Ê±¼ä
+0104 F590              6     LOOP:MOV P1,A     ;½«AÖÐµÄÊ·ÅÈëP1¿Ú
+0106 758901            7          MOV TMOD,#01H;ÉèÖÃ¶¨Ê±Æ÷¹¤×÷·½Ê½Îª·½Ê½1
+0109 758C00            8              MOV TH0,#00H ;ÉèÖÃ¸ß°ËÎ»
+010C 758A00            9              MOV TL0,#00H ;ÉèÖÃµÍ°ËÎ»
+010F 308DFD           10              JNB TF0,$    ;ÈôÃ»ÓÐÒç³öÔòµÈ´
+0112 C28D             11          CLR TF0      ;Çå¿ÕÒç³ö±êÖ¾Î»
+0114 DFEE             12          DJNZ R7,LOOP ;ÈôR7ÎªÁãÔò×ª»ØLOOP
+0116 F4               13          CPL A        ;½«AÈ¡·´
+0117 80E7             14              SJMP MAIN    ;ÎÞÌõ¼þ×ª»ØMAIN
+                      15              END          ;³ÌÐò½áÊø
+A51 MACRO ASSEMBLER  TIMER                                                                05/06/2021 17:21:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0104H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
